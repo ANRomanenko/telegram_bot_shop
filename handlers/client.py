@@ -1,11 +1,12 @@
 from aiogram import types, Dispatcher
-from create_bot import bot, dp
-
+from create_bot import dp, bot
+from keyboards import kb_client
+from aiogram.types import ReplyKeyboardRemove
 
 # @dp.message_handler(commands=['start', 'help']) # Дикоратор
 async def commands_start(message: types.Message):
     try:
-        await bot.send_message(message.from_user.id, 'Приятного, Вам выбора нашего ассортимента!')
+        await bot.send_message(message.from_user.id, 'Приятного, Вам выбора нашего ассортимента!', reply_markup=kb_client)
         await message.delete()
     except:
         await message.reply('Общение с ботом через ЛС, напишите ему:\nhttps://t.me/orexmall_bot')
@@ -18,8 +19,7 @@ async def orex_open_command(message: types.Message):
 
 # @dp.message_handler(commands=['Расположение'])
 async def orex_place_command(message: types.Message):
-    await bot.send_message(message.from_user.id, 'ул. Уличная 1')
-
+    await bot.send_message(message.from_user.id, 'ул. Уличная 1', reply_markup=ReplyKeyboardRemove())
 
 
 
