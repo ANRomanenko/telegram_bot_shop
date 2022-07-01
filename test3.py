@@ -6,7 +6,7 @@ class SchoolMember:
         print('(Создан SchoolMember: {0})'.format(self.name))
     def tell(self):
         '''Вывести информацию'''
-        print('Имя "{0}" Возраст "{1}"'.format(self.name, self.age), end=" ")
+        print('Имя: "{0}" Возраст: "{1}"'.format(self.name, self.age), end=" ")
 
 
 class Teacher(SchoolMember):
@@ -19,3 +19,44 @@ class Teacher(SchoolMember):
     def tell(self):
         SchoolMember.tell(self)
         print('Зарплата: "{0:d}"'.format(self.salary))
+
+class Student(SchoolMember):
+    '''Представляет студента'''
+    def __init__(self, name, age, marks):
+        SchoolMember.__init__(self, name, age)
+        self.marks = marks
+        print('(Создан Student: {0})'.format(self.name))
+
+    def tell(self):
+        SchoolMember.tell(self)
+        print('Оценки: "{0:d}"'.format(self.marks))
+
+
+class Sister(SchoolMember):
+    def __init__(self, name, age, game):
+        SchoolMember.__init__(self, name, age)
+        self.game = game
+        print('(Создан Sister: {0})'.format(self.name))
+
+    def tell(self):
+        SchoolMember.tell(self)
+        print('Игрушка: "{0}"'.format(self.game))
+
+
+t = Teacher('Mr. Shridia', 30, 50000)
+s = Student('Swaroop', 25, 75)
+f = Sister('Mery', 15, 'Barby')
+
+
+print() # Печатает пустую строку
+
+members = [t, s, f]
+for member in members:
+    member.tell() # работает как для преподавателя, так и для студента
+
+print()
+
+name = 'Swaroop'
+age = 23
+
+print('Его имя: {0} и ему {1} года!'.format(name, age))
