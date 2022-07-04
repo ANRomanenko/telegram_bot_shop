@@ -54,3 +54,5 @@ print(spisok[::-1])
 spisok.append('add')
 print(name)
 print(spisok)
+
+print(help('return'))
