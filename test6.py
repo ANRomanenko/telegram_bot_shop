@@ -1,6 +1,3 @@
-from __future__ import braces
-
-
 # str_format (Метод формат)
 
 name = 'Dron'
