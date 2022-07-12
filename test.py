@@ -38,4 +38,5 @@ async def empty(message: types.Message):
     await message.answer('Нет такой команды')
     await message.delete()
 
+
 executor.start_polling(dp, skip_updates=True)
